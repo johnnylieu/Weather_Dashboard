@@ -21,9 +21,7 @@ searchBtn.on("click", function(event) {
         $("#prevSearches").prepend("<p>" + (savedLocations[i]) + "</p>");
     };
 
-    var noneYo = "&appid=8f775258afdec054195f89c38855f678";
-
-    queryURL = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q=" + city + noneYo;
+    queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=8f775258afdec054195f89c38855f678";
     $.ajax({
         url: queryURL,
         method: "GET"
