@@ -8,11 +8,12 @@ searchBtn.on("click", function(event) {
     var city = $("#searchInput").val().trim();
     console.log(city); // working, grabbing data from search form
 
-    queryURL = "pro.openweathermap.org/data/2.5/forecast/hourly?id=" + btnData +"&appid=8f775258afdec054195f89c38855f678"
+    queryURL = "pro.openweathermap.org/data/2.5/forecast/hourly?id=" + city +"&appid=8f775258afdec054195f89c38855f678"
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
+        console.log(response);
         // currentLoc = response.name;
         // saveLoc(response.name);
         // getCurrent(currentLoc);
