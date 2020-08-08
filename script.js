@@ -1,5 +1,5 @@
 var searchBtn = $("#searchBtn");
-var savedLocations = [];
+var savedLocations = []; // array for the searches user makes
 
 // when clicking the search button, should grab data and push to local storage
 searchBtn.on("click", function(event) {
@@ -10,7 +10,11 @@ searchBtn.on("click", function(event) {
     var city = $("#searchInput").val().trim();
     console.log(city); // working, grabbing data from search form
 
-    // localStorage.setItem(city); // needs second argument
+    if (typeof(city) !== "undefined") {
+        localStorage.setItem("city", city); // ***each new search is overwriting previous search in localStorage, need to figure out how to store multiple cities in localStorage
+        savedLocations.push(city);
+        console.log(savedLocations); // working, searched locations are being pushed to the array so we can prepend later
+    };
 
     var noneYo = "&appid=8f775258afdec054195f89c38855f678";
 
