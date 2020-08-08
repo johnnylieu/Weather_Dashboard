@@ -1,6 +1,11 @@
 var searchBtn = $("#searchBtn");
 var savedLocations = []; // array for the searches user makes
 
+//current day and time
+$(document).ready(function() {
+    $("#currentDate").append("<h1>" + (moment().format('dddd MMMM Do, YYYY, h:mm A')) + "</h1>");
+});
+
 // when clicking the search button, should grab data and push to local storage
 searchBtn.on("click", function(event) {
     event.preventDefault();
@@ -33,7 +38,7 @@ searchBtn.on("click", function(event) {
         var rCity = response.city.name;
         console.log(rCity);
 
-        var currentDate = response.list;
+        var currentDate = response.list[0].dt_txt;
         console.log(currentDate);
 
         var rPopulation = response.city.population
