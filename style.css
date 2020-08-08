@@ -6,7 +6,7 @@
 #prevSearches
 p {
     background-color: lightslategrey;
-    font: white; /* not working */
+    font: white; /* 🤦‍♂️ not working, i want to make font bold and white, and surrounding corners round */
 }
 
 /* .uvindex {
