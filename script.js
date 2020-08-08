@@ -16,6 +16,11 @@ searchBtn.on("click", function(event) {
         console.log(savedLocations); // working, searched locations are being pushed to the array so we can prepend later
     };
 
+    $("#prevSearches").empty(); // working, this clears the searches before the for loop functions starts which will prevent duplicates from pre-pending
+    for (var i = 0; i < savedLocations.length; i++) {
+        $("#prevSearches").prepend("<p>" + (savedLocations[i]) + "</p>");
+    };
+
     var noneYo = "&appid=8f775258afdec054195f89c38855f678";
 
     queryURL = "pro.openweathermap.org/data/2.5/forecast/hourly?id=" + city + noneYo;

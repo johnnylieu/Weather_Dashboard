@@ -3,6 +3,12 @@
     padding: 20px;
 }
 
+#prevSearches
+p {
+    background-color: lightslategrey;
+    font: white; /* not working */
+}
+
 /* .uvindex {
     padding: 5px;
 }
