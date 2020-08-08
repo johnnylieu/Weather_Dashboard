@@ -21,7 +21,7 @@ searchBtn.on("click", function(event) {
         $("#prevSearches").prepend("<p>" + (savedLocations[i]) + "</p>");
     };
 
-    queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=8f775258afdec054195f89c38855f678";
+    queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=8f775258afdec054195f89c38855f678&units=imperial";
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -30,6 +30,14 @@ searchBtn.on("click", function(event) {
         // currentLoc = response.name;
         // saveLoc(response.name);
         // getCurrent(currentLoc);
+        var rCity = response.city.name;
+        console.log(rCity);
+
+        var currentDate = response.list;
+        console.log(currentDate);
+
+        var rPopulation = response.city.population
+        console.log(rPopulation);
     });
 
 });
