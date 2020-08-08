@@ -12,9 +12,9 @@ searchBtn.on("click", function(event) {
 
     // localStorage.setItem(city); // needs second argument
 
-    var noneYo = "8f775258afdec054195f89c38855f678";
+    var noneYo = "&appid=8f775258afdec054195f89c38855f678";
 
-    queryURL = "pro.openweathermap.org/data/2.5/forecast/hourly?id=" + city +"&appid=" + noneYo;
+    queryURL = "pro.openweathermap.org/data/2.5/forecast/hourly?id=" + city + noneYo;
     $.ajax({
         url: queryURL,
         method: "GET"
