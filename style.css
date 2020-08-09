@@ -43,8 +43,9 @@
     /* 5px rounded corners */
     width: 19%;
     height: 200px;
-    padding: 10px;
-    margin: 5px;
+    padding: 3px;
+    margin-right: 1%;
+    margin-bottom: 5px;
     float: left;
     background-color: lightskyblue;
     font: white;
@@ -52,7 +53,7 @@
 
 #todaysForecast {
     background-color: lightskyblue;
-    width: 77.6%;
+    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     /* rounded corners*/
@@ -62,9 +63,9 @@
     /* 5px rounded corners */
 }
 
-#currentDate #currentIcon {
+/* #currentDate #currentIcon {
     float: right;
-}
+} */
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
