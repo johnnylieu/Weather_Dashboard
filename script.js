@@ -183,7 +183,7 @@ function currentW(city) {
 
         var rTemp0 = response.main.temp;
         console.log(rTemp0); // working
-        $("#temp0").prepend("<p> Temperature " + rTemp0 + "° F </p.>"); // working
+        $("#temp0").prepend("<p>" + rTemp0 + "° F </p.>"); // working
 
         var rHum0 = response.main.humidity;
         console.log(rHum0);
