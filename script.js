@@ -91,6 +91,54 @@ function currentW(city) {
         var rCity = response.name;
         console.log(rCity);
 
+        var weatherDes = (response.weather[0].description);
+        console.log(weatherDes);
+
+        // // clear sky background gif
+        // if (weatherDes = "clear sky") {
+        //     $('body').css('background-image', 'url("clearsky.gif")');
+        // }
+
+        // // few clouds background gif
+        // else if (weatherDes = "few clouds") {
+        //     $('body').css('background-image', 'url("fewclouds.gif")');
+        // }
+
+        // // scatter clouds background gif
+        // else if (weatherDes = "scattered clouds") {
+        //     $('body').css('background-image', 'url("scatterclouds.gif")');
+        // }
+
+        // // broken clouds background gif
+        // else if (weatherDes = "broken clouds") {
+        //     $('body').css('background-image', 'url("brokenclouds.gif")');
+        // }
+
+        // // shower rain background gif
+        // else if (weatherDes = "shower rain") {
+        //     $('body').css('background-image', 'url("showerrain.gif")');
+        // }
+
+        // // rain background gif
+        // else if (weatherDes = "rain") {
+        //     $('body').css('background-image', 'url("rain.gif")');
+        // }
+
+        // // thunderstorm background gif
+        // else if (weatherDes = "thunderstorm") {
+        //     $('body').css('background-image', 'url("thunderstorm.gif")');
+        // }
+
+        // // snow background gif
+        // else if (weatherDes = "snow") {
+        //     $('body').css('background-image', 'url("snow.gif")');
+        // }
+
+        // // mist background gif
+        // else if (weatherDes = "mist") {
+        //     $('body').css('background-image', 'url("mist.gif")');
+        // };
+
         var latitude = response.coord.lat;
         var longitude = response.coord.lon;
         console.log(latitude, longitude); // working, grabbing latitude and longitude
@@ -104,6 +152,7 @@ function currentW(city) {
             console.log(response);
 
             $("#uvIndex0").empty();
+
 
             var uvIndex = response.value;
             console.log(uvIndex)
@@ -133,7 +182,7 @@ function currentW(city) {
 
         var rTemp0 = response.main.temp;
         console.log(rTemp0); // working
-        $("#temp0").prepend("<p> Temperature " + rTemp0 + "° F</p>"); // working
+        $("#temp0").prepend("<p> Temperature " + rTemp0 + "° F </p.>"); // working
 
         var rHum0 = response.main.humidity;
         console.log(rHum0);

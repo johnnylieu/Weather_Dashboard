@@ -1,43 +1,75 @@
 .searchArea {
-    background-color: #e6f2ff;
     padding: 20px;
+    /* rounded corners*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    /* 5px rounded corners */
 }
 
+.text-secondary {
+    background-color: lightskyblue;
+    margin-top: -18px;
+    padding: 20px;
+    /* rounded corners*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    /* 5px rounded corners */
+}
+
+.brokenclouds {
+    background-image: url(brokenclouds.gif); 
+}
 
 .searchedBtn {
     background-color: lightskyblue;
     width: 100%;
     margin-top: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
+    border-radius: 5px;
+    /* 5px rounded corners */
     text-align: center;
-    font: white; /* 🤦‍♂️ not working, i want to make font bold and white, and surrounding corners round */
+    font: white;
+    /* 🤦‍♂️ not working, i want to make font bold and white, and surrounding corners round */
 }
 
 .card {
     /* rounded corners*/
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
+    border-radius: 5px;
+    /* 5px rounded corners */
     width: 19%;
     height: 200px;
     padding: 10px;
-    margin-right:  2px;
+    margin: 5px;
     float: left;
-    background-color:lightskyblue;
+    background-color: lightskyblue;
     font: white;
-  }
+}
 
-  #currentDate
-  #currentIcon {
-      float: right;
-  }
-  
-  /* On mouse-over, add a deeper shadow */
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
+#todaysForecast {
+    background-color: lightskyblue;
+    width: 77.6%;
+    padding: 10px;
+    margin-bottom: 10px;
+    /* rounded corners*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    /* 5px rounded corners */
+}
+
+#currentDate #currentIcon {
+    float: right;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
 
 /* .uvindex {
     padding: 5px;
