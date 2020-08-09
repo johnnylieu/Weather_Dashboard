@@ -20,6 +20,7 @@ searchBtn.on("click", function (event) {
     var city = $("#searchInput").val().trim();
     console.log(city); // working, grabbing data from search form
     $("#currentCity0").append("<h1>" + city + "</h1>");
+
     // displayCity = response.name
     // console.log(response.name);
 
@@ -108,20 +109,27 @@ function currentW(city) {
             console.log(uvIndex)
             $("#uvIndex0").append($("<p>").attr("class", "card-text").text("UV Index: " + uvIndex));
             if (uvIndex <= 3) {
-                $(".card-text").css({"background-color": "green"});
-            }
-            else if (uvIndex >= 3 || uvindex <= 6) {
-                $(".card-text").css({"background-color": "yellow"});
-            }
-            else if (uvIndex >= 6 || uvindex <= 8) {
-                $(".card-text").css({"background-color": "orange"});
-            }
-            else {
-                $(".card-text").css({"background-color": "red"});
+                $(".card-text").css({
+                    "background-color": "green"
+                });
+            } else if (uvIndex >= 3 || uvindex <= 6) {
+                $(".card-text").css({
+                    "background-color": "yellow"
+                });
+            } else if (uvIndex >= 6 || uvindex <= 8) {
+                $(".card-text").css({
+                    "background-color": "orange"
+                });
+            } else {
+                $(".card-text").css({
+                    "background-color": "red"
+                });
             }
         });
 
-
+        var currentIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png");
+        console.log(currentIcon);
+        $("#currentIcon").prepend(currentIcon);
 
         var rTemp0 = response.main.temp;
         console.log(rTemp0); // working
@@ -129,7 +137,7 @@ function currentW(city) {
 
         var rHum0 = response.main.humidity;
         console.log(rHum0);
-        $("#humidity0").prepend("<p> Humidity: " + rTemp0 + "</p>");
+        $("#humidity0").prepend("<p> Humidity: " + rHum0 + "</p>");
 
         fiveDayForecast(city);
     });

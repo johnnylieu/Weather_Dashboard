@@ -28,6 +28,11 @@
     background-color:lightskyblue;
     font: white;
   }
+
+  #currentDate
+  #currentIcon {
+      float: right;
+  }
   
   /* On mouse-over, add a deeper shadow */
   .card:hover {
