@@ -103,23 +103,23 @@ function currentW(city) {
         }).then(function (response) {
             console.log(response);
 
+            $("#uvIndex0").empty();
+
             var uvIndex = response.value;
             console.log(uvIndex)
-            var bgcolor;
+            $("#uvIndex0").append($("<p>").attr("class", "card-text").text("UV Index: " + uvIndex));
             if (uvIndex <= 3) {
-                bgcolor = "green";
+                $(".card-text").css({"background-color": "green"});
             }
             else if (uvIndex >= 3 || uvindex <= 6) {
-                bgcolor = "yellow";
+                $(".card-text").css({"background-color": "yellow"});
             }
             else if (uvIndex >= 6 || uvindex <= 8) {
-                bgcolor = "orange";
+                $(".card-text").css({"background-color": "orange"});
             }
             else {
-                bgcolor = "red";
+                $(".card-text").css({"background-color": "red"});
             }
-            var uvdisp = $("<p>").attr("class", "card-text").text("UV Index: ");
-            $("#uvIndex0").append("UV Index: " + uvIndex);
         });
 
 
