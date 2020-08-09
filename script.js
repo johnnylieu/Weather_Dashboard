@@ -16,6 +16,7 @@ searchBtn.on("click", function (event) {
     console.log(button); // working
 
     $("#currentCity0").empty();
+    $("#currentIcon").empty();
 
     var city = $("#searchInput").val().trim();
     console.log(city); // working, grabbing data from search form
