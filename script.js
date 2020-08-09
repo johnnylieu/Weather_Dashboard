@@ -94,50 +94,50 @@ function currentW(city) {
         var weatherDes = (response.weather[0].description);
         console.log(weatherDes);
 
-        // // clear sky background gif
-        // if (weatherDes = "clear sky") {
-        //     $('body').css('background-image', 'url("clearsky.gif")');
-        // }
+        // clear sky background gif
+        if (weatherDes === "clear sky") {
+            $('body').css('background-image', 'url("clearsky.gif")');
+        }
 
-        // // few clouds background gif
-        // else if (weatherDes = "few clouds") {
-        //     $('body').css('background-image', 'url("fewclouds.gif")');
-        // }
+        // few clouds background gif
+        else if (weatherDes === "few clouds") {
+            $('body').css('background-image', 'url("fewclouds.gif")');
+        }
 
-        // // scatter clouds background gif
-        // else if (weatherDes = "scattered clouds") {
-        //     $('body').css('background-image', 'url("scatterclouds.gif")');
-        // }
+        // scatter clouds background gif
+        else if (weatherDes === "scattered clouds") {
+            $('body').css('background-image', 'url("scatterclouds.gif")');
+        }
 
-        // // broken clouds background gif
-        // else if (weatherDes = "broken clouds") {
-        //     $('body').css('background-image', 'url("brokenclouds.gif")');
-        // }
+        // broken clouds background gif
+        else if (weatherDes === "broken clouds") {
+            $('body').css('background-image', 'url("brokenclouds.gif")');
+        }
 
-        // // shower rain background gif
-        // else if (weatherDes = "shower rain") {
-        //     $('body').css('background-image', 'url("showerrain.gif")');
-        // }
+        // shower rain background gif
+        else if (weatherDes === "shower rain") {
+            $('body').css('background-image', 'url("showerrain.gif")');
+        }
 
-        // // rain background gif
-        // else if (weatherDes = "rain") {
-        //     $('body').css('background-image', 'url("rain.gif")');
-        // }
+        // rain background gif
+        else if (weatherDes === "rain") {
+            $('body').css('background-image', 'url("rain.gif")');
+        }
 
-        // // thunderstorm background gif
-        // else if (weatherDes = "thunderstorm") {
-        //     $('body').css('background-image', 'url("thunderstorm.gif")');
-        // }
+        // thunderstorm background gif
+        else if (weatherDes === "thunderstorm") {
+            $('body').css('background-image', 'url("thunderstorm.gif")');
+        }
 
-        // // snow background gif
-        // else if (weatherDes = "snow") {
-        //     $('body').css('background-image', 'url("snow.gif")');
-        // }
+        // snow background gif
+        else if (weatherDes === "snow") {
+            $('body').css('background-image', 'url("snow.gif")');
+        }
 
-        // // mist background gif
-        // else if (weatherDes = "mist") {
-        //     $('body').css('background-image', 'url("mist.gif")');
-        // };
+        // mist background gif
+        else if (weatherDes === "mist") {
+            $('body').css('background-image', 'url("mist.gif")');
+        };
 
         var latitude = response.coord.lat;
         var longitude = response.coord.lon;
