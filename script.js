@@ -29,7 +29,7 @@ searchBtn.on("click", function (event) {
 
     $("#prevSearches").empty(); // working, this clears the searches before the for loop functions starts which will prevent duplicates from pre-pending
     for (var i = 0; i < savedLocations.length; i++) {
-        $("#prevSearches").prepend("<button class='searchedBtn' value=" + JSON.stringify(savedLocations[i]) + ">" + JSON.stringify(savedLocations[i]) + "</button>");
+        $("#prevSearches").prepend("<button class='searchedBtn' value=" + JSON.stringify(savedLocations[i]) + ">" + (savedLocations[i]) + "</button>");
 
         $(".searchedBtn").on("click", function (event) { // click for searched history
             console.log($(this).val());
