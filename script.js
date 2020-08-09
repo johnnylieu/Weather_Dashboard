@@ -7,7 +7,7 @@ var savedLocations = []; // array for the searches user makes
 
 //current day and time
 $(document).ready(function () {
-    $("#currentDate").append("<h2>" + (moment().format('dddd MMMM Do')) + "</h2>");
+    $("#currentDate").append("<h2>" + (moment().format('dddd, MMMM Do')) + "</h2>");
 });
 
 // when clicking the search button, should grab data and push to local storage
