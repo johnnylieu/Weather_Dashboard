@@ -16,9 +16,11 @@ searchBtn.on("click", function (event) {
     var button = $(this);
     console.log(button); // working
 
+    $("#currentCity0").empty();
+
     var city = $("#searchInput").val().trim();
     console.log(city); // working, grabbing data from search form
-    // $("#currentCity0").append("<h1>" + response.name + "</h1>");
+    $("#currentCity0").append("<h1>" + city + "</h1>");
     // console.log(response.name);
 
     if (typeof (city) !== "undefined") {
