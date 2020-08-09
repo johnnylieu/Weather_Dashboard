@@ -3,8 +3,11 @@
     padding: 20px;
 }
 
+
 .searchedBtn {
     background-color: lightskyblue;
+    width: 100%;
+    margin-top: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
@@ -19,6 +22,7 @@
     border-radius: 5px; /* 5px rounded corners */
     width: 19%;
     height: 200px;
+    padding: 10px;
     margin-right:  2px;
     float: left;
     background-color:lightskyblue;

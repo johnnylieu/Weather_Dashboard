@@ -1,9 +1,8 @@
 var searchBtn = $("#searchBtn");
 var savedLocations = []; // array for the searches user makes
 
-
-// gets current city
-
+// pull from localStorage
+$("#prevSearches").val(localStorage.getItem(JSON.stringify("history"))); // local storage not retrieving
 
 //current day and time
 $(document).ready(function () {
@@ -25,7 +24,7 @@ searchBtn.on("click", function (event) {
     // console.log(response.name);
 
     if (typeof (city) !== "undefined") {
-        localStorage.setItem("history", savedLocations); //🤦‍♂️ ***each new search is overwriting previous search in localStorage, need to figure out how to store multiple cities in localStorage
+        localStorage.setItem("history", savedLocations);
         savedLocations.push(city);
         console.log(savedLocations); // working, searched locations are being pushed to the array so we can prepend later
     };
@@ -62,12 +61,13 @@ function fiveDayForecast(city) {
             var card = $("<div>").addClass("card");
             var cardContent = $("<div>").addClass("cardContent");
             var date = $("<h5>").text(new Date(day.dt_txt).toLocaleDateString());
-            var temperature = $("<p>").text("Temp: " + day.main.temp);
+            var temperature = $("<p>").text(day.main.temp + "°F");
             var icons = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + day.weather[0].icon + ".png");
             var icon = day.weather[0].icon;
+            var wind = $("<p>").text(day.wind.speed + " MPH");
             console.log(icon);
 
-            cardContent.append(date, icons, temperature);
+            cardContent.append(date, icons, temperature, wind);
             card.append(cardContent);
             $("#upcomingForecast").append(card);
         });
@@ -95,7 +95,6 @@ function currentW(city) {
         console.log(latitude, longitude); // working, grabbing latitude and longitude
 
         // UV Index
-
         uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=7e4c7478cc7ee1e11440bf55a8358ec3&lat=" + response.coord.lat + "&lon=" + response.coord.lat;
         $.ajax({
             url: uvURL,
@@ -135,6 +134,3 @@ function currentW(city) {
         fiveDayForecast(city);
     });
 };
-
-// pull from localStorage
-localStorage.getItem("history", savedLocations);
