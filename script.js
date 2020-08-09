@@ -21,6 +21,7 @@ searchBtn.on("click", function (event) {
     var city = $("#searchInput").val().trim();
     console.log(city); // working, grabbing data from search form
     $("#currentCity0").append("<h1>" + city + "</h1>");
+    // displayCity = response.name
     // console.log(response.name);
 
     if (typeof (city) !== "undefined") {
@@ -31,12 +32,12 @@ searchBtn.on("click", function (event) {
 
     $("#prevSearches").empty(); // working, this clears the searches before the for loop functions starts which will prevent duplicates from pre-pending
     for (var i = 0; i < savedLocations.length; i++) {
-        $("#prevSearches").prepend("<button class='searchedBtn' value=" + JSON.stringify(savedLocations[i]) + ">" + (savedLocations[i]) + "</button>");
+        $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + (JSON.stringify(savedLocations[i])) + ">" + (savedLocations[i]) + "</button>");
 
         $(".searchedBtn").on("click", function (event) { // click for searched history
             console.log($(this).val());
             currentW($(this).val());
-        }); 
+        });
     };
     currentW(city);
 
@@ -88,6 +89,40 @@ function currentW(city) {
         // getCurrent(currentLoc);
         var rCity = response.name;
         console.log(rCity);
+
+        var latitude = response.coord.lat;
+        var longitude = response.coord.lon;
+        console.log(latitude, longitude); // working, grabbing latitude and longitude
+
+        // UV Index
+
+        uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=7e4c7478cc7ee1e11440bf55a8358ec3&lat=" + response.coord.lat + "&lon=" + response.coord.lat;
+        $.ajax({
+            url: uvURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+
+            var uvIndex = response.value;
+            console.log(uvIndex)
+            var bgcolor;
+            if (uvIndex <= 3) {
+                bgcolor = "green";
+            }
+            else if (uvIndex >= 3 || uvindex <= 6) {
+                bgcolor = "yellow";
+            }
+            else if (uvIndex >= 6 || uvindex <= 8) {
+                bgcolor = "orange";
+            }
+            else {
+                bgcolor = "red";
+            }
+            var uvdisp = $("<p>").attr("class", "card-text").text("UV Index: ");
+            $("#uvIndex0").append("UV Index: " + uvIndex);
+        });
+
+
 
         var rTemp0 = response.main.temp;
         console.log(rTemp0); // working
