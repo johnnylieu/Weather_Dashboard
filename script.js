@@ -1,9 +1,12 @@
 var searchBtn = $("#searchBtn");
 var savedLocations = []; // array for the searches user makes
 
+// gets current city
+
+
 //current day and time
 $(document).ready(function() {
-    $("#currentDate").append("<h1>" + (moment().format('dddd MMMM Do, YYYY, h:mm A')) + "</h1>");
+    $("#currentDate").append("<h1>" + (moment().format('dddd MMMM Do')) + "</h1>");
 });
 
 // when clicking the search button, should grab data and push to local storage
@@ -14,6 +17,7 @@ searchBtn.on("click", function(event) {
 
     var city = $("#searchInput").val().trim();
     console.log(city); // working, grabbing data from search form
+    $("#currentCity").append("<h2>" + city + "</h2>");
 
     if (typeof(city) !== "undefined") {
         localStorage.setItem("city", city); //🤦‍♂️ ***each new search is overwriting previous search in localStorage, need to figure out how to store multiple cities in localStorage
