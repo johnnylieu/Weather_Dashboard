@@ -7,6 +7,8 @@ A simple web-app that allows you to search for a city and get the current weathe
 Simply type the name of the city in the field provided and click the search button.
 You can also select from the list of cities previously searched to see an up-to-date forecast.
 
+The background image changes depending on the current weather.
+
 Try it here: https://johnnylieu.github.io/Weather_Dashboard/
 
 ## History
