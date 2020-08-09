@@ -2,7 +2,8 @@ var searchBtn = $("#searchBtn");
 var savedLocations = []; // array for the searches user makes
 
 // pull from localStorage
-$("#prevSearches").val(localStorage.getItem(JSON.stringify("history"))); // local storage not retrieving
+
+// $("#prevSearches").val(JSON.parse(localStorage.getItem("history"))); // local storage not retrieving
 
 //current day and time
 $(document).ready(function () {
@@ -20,7 +21,6 @@ searchBtn.on("click", function (event) {
 
     var city = $("#searchInput").val().trim();
     console.log(city); // working, grabbing data from search form
-    $("#currentCity0").append("<h1>" + city + "</h1>");
 
     // displayCity = response.name
     // console.log(response.name);
@@ -86,11 +86,14 @@ function currentW(city) {
         console.log(response);
         $("#temp0").empty();
         $("#humidity0").empty();
+        $("#currentIcon").empty();
         // currentLoc = response.name;
         // saveLoc(response.name);
         // getCurrent(currentLoc);
         var rCity = response.name;
         console.log(rCity);
+
+        $("#currentCity0").append("<h1>" + rCity + "</h1>");
 
         var weatherDes = (response.weather[0].description);
         console.log(weatherDes);
