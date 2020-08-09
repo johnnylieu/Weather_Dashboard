@@ -45,8 +45,16 @@ searchBtn.on("click", function(event) {
         var currentDate = response.list[0].dt_txt;
         console.log(currentDate);
 
-        var rPopulation = response.city.population
+        var rPopulation = response.city.population;
         console.log(rPopulation);
+
+        var rTemp0 = response.list[0].main.temp;
+        console.log(rTemp0); // working
+        $("#temp0").prepend("<p> Temperature " + rTemp0 + "° F</p>"); // working
+
+        var rHum0 = response.list[0].main.humidity;
+        console.log(rHum0);
+        $("#humidity0").prepend("<p> Humidity: " + rTemp0 + "</p>");
     });
 
 });
