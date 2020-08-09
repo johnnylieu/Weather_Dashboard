@@ -17,7 +17,7 @@ https://github.com/johnnylieu/Weather_Dashboard/commits/master
 
 ## Screenshot
 
-![Weather App](screenshot.png)
+![Weather App](screenshot.bmp)
 
 ## Credits
 Special thanks to to my tutor Bobbi Tarkany for pointing me in the right direction.
