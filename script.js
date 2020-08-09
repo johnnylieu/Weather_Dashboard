@@ -87,6 +87,7 @@ function currentW(city) {
         $("#temp0").empty();
         $("#humidity0").empty();
         $("#currentIcon").empty();
+        $("#currentCity0").empty();
         // currentLoc = response.name;
         // saveLoc(response.name);
         // getCurrent(currentLoc);
