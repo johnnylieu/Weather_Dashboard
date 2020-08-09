@@ -1,6 +1,7 @@
 var searchBtn = $("#searchBtn");
 var savedLocations = []; // array for the searches user makes
 
+
 // gets current city
 
 
@@ -28,7 +29,7 @@ searchBtn.on("click", function (event) {
 
     $("#prevSearches").empty(); // working, this clears the searches before the for loop functions starts which will prevent duplicates from pre-pending
     for (var i = 0; i < savedLocations.length; i++) {
-        $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + savedLocations[i] + ">" + (savedLocations[i]) + "</button>");
+        $("#prevSearches").prepend("<button class='searchedBtn' value=" + JSON.stringify(savedLocations[i]) + ">" + JSON.stringify(savedLocations[i]) + "</button>");
 
         $(".searchedBtn").on("click", function (event) { // click for searched history
             console.log($(this).val());
@@ -99,4 +100,4 @@ function currentW(city) {
 };
 
 // pull from localStorage
-// localStorage.getItem()
+localStorage.getItem("history", savedLocations);
