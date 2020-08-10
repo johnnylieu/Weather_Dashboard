@@ -11,9 +11,10 @@ $(document).ready(function () {
 });
 
 var storedHistory = localStorage.getItem("history");
-for (var i = 0; i < storedHistory.length; i++) {
+var storedHistoryArray = storedHistory.split(',');
+for (var i = 0; i < storedHistoryArray.length; i++) {
 // create button here
-    $("#prevSearches").append("<button class='searchedBtn' id='prevSearches' value=" + (storedHistory[i]) + ">" + (storedHistory[i]) + "</button>");
+    $("#prevSearches").append("<button class='searchedBtn' id='prevSearches' value=" + (storedHistoryArray[i]) + ">" + (storedHistoryArray[i]) + "</button>");
 
     $(".searchedBtn").on("click", function (event) { // click for searched history
         console.log($(this).val());
@@ -198,7 +199,11 @@ function currentW(city) {
 
         var rTemp0 = response.main.temp;
         console.log(rTemp0); // working
-        $("#temp0").prepend("<p>" + rTemp0 + "° F </p.>"); // working
+        $("#temp0").prepend("<p>Temp: " + rTemp0 + "° F </p.>"); // working
+
+        var wind = response.wind.speed;
+        console.log(wind);
+        $("#wind0").prepend("<p> Wind: " + wind + " MPH </p>");
 
         var rHum0 = response.main.humidity;
         console.log(rHum0);
