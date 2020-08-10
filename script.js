@@ -40,7 +40,6 @@ $(document).ready(function () {
 });
 
 // pulling from local storage
-if (typeof (storedHistory) !== "undefined") {
 var storedHistory = localStorage.getItem("history");
 console.log(storedHistory);
 var storedHistoryArray = storedHistory.split(',');
@@ -53,7 +52,6 @@ for (var i = 0; i < storedHistoryArray.length; i++) {
         console.log($(this).val());
         currentW($(this).val());
     });
-}
 }
 
 // when clicking the search button, should grab data and push to local storage
