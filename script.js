@@ -10,6 +10,17 @@ $(document).ready(function () {
     $("#currentDate").append("<h2>" + (moment().format('dddd, MMMM Do')) + "</h2>");
 });
 
+var storedHistory = localStorage.getItem("history");
+for (var i = 0; i < storedHistory.length; i++) {
+// create button here
+    $("#prevSearches").append("<button class='searchedBtn' id='prevSearches' value=" + (storedHistory[i]) + ">" + (storedHistory[i]) + "</button>");
+
+    $(".searchedBtn").on("click", function (event) { // click for searched history
+        console.log($(this).val());
+        currentW($(this).val());
+    });
+}
+
 // when clicking the search button, should grab data and push to local storage
 searchBtn.on("click", function (event) {
     event.preventDefault();
