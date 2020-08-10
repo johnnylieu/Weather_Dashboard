@@ -76,10 +76,10 @@ function fiveDayForecast(city) {
             var card = $("<div>").addClass("card");
             var cardContent = $("<div>").addClass("cardContent");
             var date = $("<h5>").text(new Date(day.dt_txt).toLocaleDateString());
-            var temperature = $("<p>").text(day.main.temp + "°F");
+            var temperature = $("<p>").text(((Math.floor(day.main.temp))) + "°F");
             var icons = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + day.weather[0].icon + ".png");
             var icon = day.weather[0].icon;
-            var wind = $("<p>").text(day.wind.speed + " MPH");
+            var wind = $("<p>").text(((Math.floor(day.wind.speed) + " MPH")));
             console.log(icon);
 
             cardContent.append(date, icons, temperature, wind);
@@ -199,11 +199,11 @@ function currentW(city) {
         console.log(currentIcon);
         $("#currentIcon").prepend(currentIcon);
 
-        var rTemp0 = response.main.temp;
+        var rTemp0 = Math.floor(response.main.temp);
         console.log(rTemp0); // working
         $("#temp0").prepend("<p>Temp: " + rTemp0 + "° F </p.>"); // working
 
-        var wind = response.wind.speed;
+        var wind = Math.floor(response.wind.speed);
         console.log(wind);
         $("#wind0").prepend("<p> Wind: " + wind + " MPH </p>");
 
