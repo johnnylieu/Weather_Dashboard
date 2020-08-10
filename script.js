@@ -4,6 +4,7 @@ var savedLocations = []; // array for the searches user makes
 
 // grabs user's location
 geoLocBtn.on("click", function (event) {
+    event.preventDefault();
 
     if (navigator.geolocation)
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -41,21 +42,28 @@ $(document).ready(function () {
 });
 
 // pulling from local storage
-if (typeof (storedHistoryArray) !== "null") {
 var storedHistory = localStorage.getItem("history");
 console.log(storedHistory);
-var storedHistoryArray = storedHistory.split(',');
-console.log(storedHistoryArray);
-for (var i = 0; i < storedHistoryArray.length; i++) {
-    $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + (JSON.stringify(storedHistoryArray[i])) + ">" + (storedHistoryArray[i]) + "</button>");
-    savedLocations.push(storedHistoryArray[i]);
 
-    $(".searchedBtn").on("click", function (event) { // click for searched history
-        console.log($(this).val());
-        currentW($(this).val());
-    });
-}
-}
+if (storedHistory !== null) {
+    for (var i = 0; i < storedHistory.length; i++);
+    $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + storedHistory[i] + ">" + storedHistory[i] + "</button>");
+    savedLocations.push(storedHistory[i]);
+} else {
+    storedHistory=[];
+};
+
+// var storedHistoryArray = storedHistory.split(',');
+// console.log(storedHistoryArray);
+// for (var i = 0; i < storedHistory.length; i++) {
+//     $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + (storedHistoryArray[i]) + ">" + (storedHistoryArray[i]) + "</button>");
+//     savedLocations.push(storedHistoryArray[i]);
+
+//     $(".searchedBtn").on("click", function (event) { // click for searched history
+//         console.log($(this).val());
+//         currentW($(this).val());
+//     });
+// }
 
 // when clicking the search button, should grab data and push to local storage
 searchBtn.on("click", function (event) {
