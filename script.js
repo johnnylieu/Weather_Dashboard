@@ -53,8 +53,8 @@ searchBtn.on("click", function (event) {
     var button = $(this);
     console.log(button); // working
 
-    $("#currentCity0").empty();
-    $("#currentIcon").empty();
+    // $("#currentCity0").empty();
+    // $("#currentIcon").empty();
 
     var city = $("#searchInput").val().trim();
     console.log(city); // working, grabbing data from search form
@@ -126,13 +126,17 @@ function currentW(city) {
         $("#humidity0").empty();
         $("#currentIcon").empty();
         $("#currentCity0").empty();
+        $("#currentIcon").empty();
         // currentLoc = response.name;
         // saveLoc(response.name);
         // getCurrent(currentLoc);
         var rCity = response.name;
         console.log(rCity);
 
-        $("#currentCity0").append("<h1>" + rCity + "</h1>");
+        var country = response.sys.country;
+        console.log(country);
+
+        $("#currentCity0").append("<h1>" + rCity + ", " + country + "</h1>");
 
         var weatherDes = (response.weather[0].description);
         console.log(weatherDes);
