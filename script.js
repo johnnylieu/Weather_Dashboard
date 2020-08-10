@@ -31,7 +31,6 @@ searchBtn.on("click", function (event) {
 
     $("#currentCity0").empty();
     $("#currentIcon").empty();
-    $("#wind0").empty();
 
     var city = $("#searchInput").val().trim();
     console.log(city); // working, grabbing data from search form
@@ -98,6 +97,7 @@ function currentW(city) {
         method: "GET"
     }).then(function (response) {
         console.log(response);
+        $("#wind0").empty();
         $("#temp0").empty();
         $("#humidity0").empty();
         $("#currentIcon").empty();
