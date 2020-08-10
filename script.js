@@ -40,21 +40,21 @@ $(document).ready(function () {
 });
 
 // pulling from local storage
-if (typeof (storedHistoryArray) !== "null") {
-var storedHistory = localStorage.getItem("history");
-console.log(storedHistory);
-var storedHistoryArray = storedHistory.split(',');
-console.log(storedHistoryArray);
-for (var i = 0; i < storedHistoryArray.length; i++) {
-    $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + (JSON.stringify(storedHistoryArray[i])) + ">" + (storedHistoryArray[i]) + "</button>");
-    savedLocations.push(storedHistoryArray[i]);
+// if (typeof (storedHistoryArray) !== "null") {
+// var storedHistory = localStorage.getItem("history");
+// console.log(storedHistory);
+// var storedHistoryArray = storedHistory.split(',');
+// console.log(storedHistoryArray);
+// for (var i = 0; i < storedHistoryArray.length; i++) {
+//     $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + (JSON.stringify(storedHistoryArray[i])) + ">" + (storedHistoryArray[i]) + "</button>");
+//     savedLocations.push(storedHistoryArray[i]);
 
-    $(".searchedBtn").on("click", function (event) { // click for searched history
-        console.log($(this).val());
-        currentW($(this).val());
-    });
-}
-}
+//     $(".searchedBtn").on("click", function (event) { // click for searched history
+//         console.log($(this).val());
+//         currentW($(this).val());
+//     });
+// }
+// }
 
 // when clicking the search button, should grab data and push to local storage
 searchBtn.on("click", function (event) {
@@ -153,6 +153,26 @@ function currentW(city) {
         // clear sky background gif
         if (weatherDes === "clear sky") {
             $('body').css('background-image', 'url("clearsky.gif")');
+        }
+
+        if (weatherDes === "sand/ dust whirls") {
+            $('body').css('background-image', 'url("dustwhirl.gif")');
+        }
+
+        if (weatherDes === "haze") {
+            $('body').css('background-image', 'url("haze.gif")');
+        }
+
+        if (weatherDes === "fog") {
+            $('body').css('background-image', 'url("fog.gif")');
+        }
+
+        if (weatherDes === "smoke") {
+            $('body').css('background-image', 'url("smoke.gif")');
+        }
+
+        if (weatherDes === "overcast clouds") {
+            $('body').css('background-image', 'url("overcastclouds.gif")');
         }
 
         // few clouds background gif
