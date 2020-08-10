@@ -24,6 +24,9 @@ $("#getLocation").click(function () {
         geoCity = response.name;
         console.log(geoCity);
 
+        savedLocations.push(geoCity);
+        localStorage.setItem("history", savedLocations);
+
         currentW(geoCity);
     });
 });
@@ -36,9 +39,11 @@ $(document).ready(function () {
 
 // pulling from local storage
 var storedHistory = localStorage.getItem("history");
+console.log(storedHistory);
 var storedHistoryArray = storedHistory.split(',');
+console.log(storedHistoryArray);
 for (var i = 0; i < storedHistoryArray.length; i++) {
-    $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + (JSON.stringify((storedHistoryArray[i]))) + ">" + (storedHistoryArray[i]) + "</button>");
+    $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + (JSON.stringify(storedHistoryArray[i])) + ">" + (storedHistoryArray[i]) + "</button>");
     savedLocations.push(storedHistoryArray[i]);
 
     $(".searchedBtn").on("click", function (event) { // click for searched history
