@@ -14,7 +14,7 @@ $(document).ready(function () {
 var storedHistory = localStorage.getItem("history");
 var storedHistoryArray = storedHistory.split(',');
 for (var i = 0; i < storedHistoryArray.length; i++) {
-    $("#prevSearches").append("<button class='searchedBtn' id='prevSearches' value=" + (storedHistoryArray[i]) + ">" + (storedHistoryArray[i]) + "</button>");
+    $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + (JSON.stringify((storedHistoryArray[i]))) + ">" + (storedHistoryArray[i]) + "</button>");
     savedLocations.push(storedHistoryArray[i]);
 
     $(".searchedBtn").on("click", function (event) { // click for searched history
