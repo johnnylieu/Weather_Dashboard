@@ -4,7 +4,7 @@
 
 A simple web-app that allows you to search for a city and get the current weather and 5 day forecast.
 
-Simply type the name of the city in the field provided and click the search button.
+Simply type the name of the city in the field provided and click the search button OR click on the "Or click here to get your current location" button.
 You can also select from the list of cities previously searched to see an up-to-date forecast.
 
 The background image changes depending on the current weather.

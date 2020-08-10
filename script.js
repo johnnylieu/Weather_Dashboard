@@ -6,15 +6,27 @@ var savedLocations = []; // array for the searches user makes
 // $("#prevSearches").val(JSON.parse(localStorage.getItem("history"))); // local storage not retrieving
 
 // prompt for user's location
-$("#getLocation").click(function() {
+$("#getLocation").click(function () {
 
-    if(navigator.geolocation)
-    navigator.geolocation.getCurrentPosition(function(position){
-        console.log(position);
+    if (navigator.geolocation)
+        navigator.geolocation.getCurrentPosition(function (position) {
+            console.log(position);
+
+            var geoLat = position.coords.latitude;
+            var geoLon = position.coords.longitude;
+
+    queryURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + geoLat + "&lon=" + geoLon + "&appid=8f775258afdec054195f89c38855f678&units=imperial";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+        geoCity = response.name;
+        console.log(geoCity);
+
+        currentW(geoCity);
     });
-    else
-        console.log("geolocation is not supported");
-        prompt("Geolocation is not supported on this device");
+});
 });
 
 //current day and time
