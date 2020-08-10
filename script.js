@@ -26,8 +26,8 @@ searchBtn.on("click", function (event) {
     // console.log(response.name);
 
     if (typeof (city) !== "undefined") {
-        localStorage.setItem("history", savedLocations);
         savedLocations.push(city);
+        localStorage.setItem("history", savedLocations);
         console.log(savedLocations); // working, searched locations are being pushed to the array so we can prepend later
     };
 
