@@ -5,6 +5,18 @@ var savedLocations = []; // array for the searches user makes
 
 // $("#prevSearches").val(JSON.parse(localStorage.getItem("history"))); // local storage not retrieving
 
+// prompt for user's location
+$("#getLocation").click(function() {
+
+    if(navigator.geolocation)
+    navigator.geolocation.getCurrentPosition(function(position){
+        console.log(position);
+    });
+    else
+        console.log("geolocation is not supported");
+        prompt("Geolocation is not supported on this device");
+});
+
 //current day and time
 $(document).ready(function () {
     $("#currentDate").append("<h2>" + (moment().format('dddd, MMMM Do')) + "</h2>");
