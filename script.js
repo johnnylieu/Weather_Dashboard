@@ -1,40 +1,9 @@
 var searchBtn = $("#searchBtn");
-var geoLocBtn = $("#getLocation");
 var savedLocations = []; // array for the searches user makes
 
-// grabs user's location
-geoLocBtn.on("click", function (event) {
-    event.preventDefault();
+// pull from localStorage
 
-    if (navigator.geolocation)
-        navigator.geolocation.getCurrentPosition(function (position) {
-            console.log(position);
-
-            var geoLat = position.coords.latitude;
-            var geoLon = position.coords.longitude;
-
-    queryURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + geoLat + "&lon=" + geoLon + "&appid=8f775258afdec054195f89c38855f678&units=imperial";
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
-        geoCity = response.name;
-        console.log(geoCity);
-
-        savedLocations.push(geoCity);
-        console.log(savedLocations);
-        localStorage.setItem("history", savedLocations);
-
-        $("#prevSearches").empty(); // working, this clears the searches before the for loop functions starts which will prevent duplicates from pre-pending
-        for (var i = 0; i < savedLocations.length; i++) {
-        $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + (JSON.stringify(savedLocations[i])) + ">" + (savedLocations[i]) + "</button>");
-
-        currentW(geoCity);
-        }
-    });
-});
-});
+// $("#prevSearches").val(JSON.parse(localStorage.getItem("history"))); // local storage not retrieving
 
 //current day and time
 $(document).ready(function () {
@@ -42,28 +11,20 @@ $(document).ready(function () {
 });
 
 // pulling from local storage
+
 var storedHistory = localStorage.getItem("history");
-console.log(storedHistory);
+if (storedHistory !== null){
+var storedHistoryArray = storedHistory.split(',');
+for (var i = 0; i < storedHistoryArray.length; i++) {
+    $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + (JSON.stringify((storedHistoryArray[i]))) + ">" + (storedHistoryArray[i]) + "</button>");
+    savedLocations.push(storedHistoryArray[i]);
 
-if (storedHistory !== null) {
-    for (var i = 0; i < storedHistory.length; i++);
-    $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + storedHistory[i] + ">" + storedHistory[i] + "</button>");
-    savedLocations.push(storedHistory[i]);
-} else {
-    storedHistory=[];
-};
-
-// var storedHistoryArray = storedHistory.split(',');
-// console.log(storedHistoryArray);
-// for (var i = 0; i < storedHistory.length; i++) {
-//     $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + (storedHistoryArray[i]) + ">" + (storedHistoryArray[i]) + "</button>");
-//     savedLocations.push(storedHistoryArray[i]);
-
-//     $(".searchedBtn").on("click", function (event) { // click for searched history
-//         console.log($(this).val());
-//         currentW($(this).val());
-//     });
-// }
+    $(".searchedBtn").on("click", function (event) { // click for searched history
+        console.log($(this).val());
+        currentW($(this).val());
+    });
+}
+}
 
 // when clicking the search button, should grab data and push to local storage
 searchBtn.on("click", function (event) {
@@ -71,8 +32,8 @@ searchBtn.on("click", function (event) {
     var button = $(this);
     console.log(button); // working
 
-    // $("#currentCity0").empty();
-    // $("#currentIcon").empty();
+    $("#currentCity0").empty();
+    $("#currentIcon").empty();
 
     var city = $("#searchInput").val().trim();
     console.log(city); // working, grabbing data from search form
@@ -144,17 +105,13 @@ function currentW(city) {
         $("#humidity0").empty();
         $("#currentIcon").empty();
         $("#currentCity0").empty();
-        $("#currentIcon").empty();
         // currentLoc = response.name;
         // saveLoc(response.name);
         // getCurrent(currentLoc);
         var rCity = response.name;
         console.log(rCity);
 
-        var country = response.sys.country;
-        console.log(country);
-
-        $("#currentCity0").append("<h1>" + rCity + ", " + country + "</h1>");
+        $("#currentCity0").append("<h1>" + rCity + "</h1>");
 
         var weatherDes = (response.weather[0].description);
         console.log(weatherDes);
@@ -162,26 +119,6 @@ function currentW(city) {
         // clear sky background gif
         if (weatherDes === "clear sky") {
             $('body').css('background-image', 'url("clearsky.gif")');
-        }
-
-        if (weatherDes === "sand/ dust whirls") {
-            $('body').css('background-image', 'url("dustwhirl.gif")');
-        }
-
-        if (weatherDes === "haze") {
-            $('body').css('background-image', 'url("haze.gif")');
-        }
-
-        if (weatherDes === "fog") {
-            $('body').css('background-image', 'url("fog.gif")');
-        }
-
-        if (weatherDes === "smoke") {
-            $('body').css('background-image', 'url("smoke.gif")');
-        }
-
-        if (weatherDes === "overcast clouds") {
-            $('body').css('background-image', 'url("overcastclouds.gif")');
         }
 
         // few clouds background gif
