@@ -1,11 +1,7 @@
 var searchBtn = $("#searchBtn");
 var savedLocations = []; // array for the searches user makes
 
-// pull from localStorage
-
-// $("#prevSearches").val(JSON.parse(localStorage.getItem("history"))); // local storage not retrieving
-
-// prompt for user's location
+// grabs user's location
 $("#getLocation").click(function () {
 
     if (navigator.geolocation)
@@ -25,9 +21,15 @@ $("#getLocation").click(function () {
         console.log(geoCity);
 
         savedLocations.push(geoCity);
+        console.log(savedLocations);
         localStorage.setItem("history", savedLocations);
 
+        $("#prevSearches").empty(); // working, this clears the searches before the for loop functions starts which will prevent duplicates from pre-pending
+        for (var i = 0; i < savedLocations.length; i++) {
+        $("#prevSearches").prepend("<button class='searchedBtn' id='prevSearches' value=" + (JSON.stringify(savedLocations[i])) + ">" + (savedLocations[i]) + "</button>");
+
         currentW(geoCity);
+        }
     });
 });
 });
@@ -38,6 +40,7 @@ $(document).ready(function () {
 });
 
 // pulling from local storage
+if (typeof (storedHistory) !== "undefined") {
 var storedHistory = localStorage.getItem("history");
 console.log(storedHistory);
 var storedHistoryArray = storedHistory.split(',');
@@ -50,6 +53,7 @@ for (var i = 0; i < storedHistoryArray.length; i++) {
         console.log($(this).val());
         currentW($(this).val());
     });
+}
 }
 
 // when clicking the search button, should grab data and push to local storage
