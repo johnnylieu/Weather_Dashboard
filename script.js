@@ -10,11 +10,12 @@ $(document).ready(function () {
     $("#currentDate").append("<h2>" + (moment().format('dddd, MMMM Do')) + "</h2>");
 });
 
+// pulling from local storage
 var storedHistory = localStorage.getItem("history");
 var storedHistoryArray = storedHistory.split(',');
 for (var i = 0; i < storedHistoryArray.length; i++) {
-// create button here
     $("#prevSearches").append("<button class='searchedBtn' id='prevSearches' value=" + (storedHistoryArray[i]) + ">" + (storedHistoryArray[i]) + "</button>");
+    savedLocations.push(storedHistoryArray[i]);
 
     $(".searchedBtn").on("click", function (event) { // click for searched history
         console.log($(this).val());
@@ -30,6 +31,7 @@ searchBtn.on("click", function (event) {
 
     $("#currentCity0").empty();
     $("#currentIcon").empty();
+    $("#wind0").empty();
 
     var city = $("#searchInput").val().trim();
     console.log(city); // working, grabbing data from search form
