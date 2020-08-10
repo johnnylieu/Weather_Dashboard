@@ -175,21 +175,21 @@ function currentW(city) {
 
             var uvIndex = response.value;
             console.log(uvIndex)
-            $("#uvIndex0").append($("<p>").attr("class", "card-text").text("UV Index: " + uvIndex));
+            $("#uvIndex0").append($(`<p>UV Index: <span id="uv">${uvIndex}</span></p>`));
             if (uvIndex <= 3) {
-                $(".card-text").css({
+                $("#uv").css({
                     "background-color": "green"
                 });
             } else if (uvIndex >= 3 || uvindex <= 6) {
-                $(".card-text").css({
+                $("#uv").css({
                     "background-color": "yellow"
                 });
             } else if (uvIndex >= 6 || uvindex <= 8) {
-                $(".card-text").css({
+                $("#uv").css({
                     "background-color": "orange"
                 });
             } else {
-                $(".card-text").css({
+                $("#uv").css({
                     "background-color": "red"
                 });
             }
